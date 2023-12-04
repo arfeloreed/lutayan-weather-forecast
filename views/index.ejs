@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reed's Weather Forecast</title>
+  
+  <link rel="stylesheet" href="/styles/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/app.css">
+</head>
+
+<body>
+<main class="vh-100 d-flex justify-content-center align-items-center">
+  <section class="container p-5 rounded-4">
+    <p id="date" class="fs-5"></p>
+    <h1 class="text-center">Reed's Weather Forecast</h1>
+    <p class="h3 text-center">Lutayan, Sultan Kudarat</p>
+    <div class="row g-2">
+      <% if (content) { %>
+        <% content.forEach(item => { %>
+          <div class="col-6 col-sm-4 col-md">
+            <div class="card">
+              <p class="card-header h4"><%= item.time %></p>
+              <div class="card-body">
+                <div class="card-img-con d-flex justify-content-center mb-3">
+                  <% const rainWeather = ["Rain", "Drizzle", "Thunderstorm"] %>
+                  <% if (rainWeather.includes(item.weather)) { %>
+                    <img src="/images/rain.png" alt="rain picture">
+                  <% } else if (item.weather === "Clouds") { %>
+                    <img src="/images/cloud.png" alt="">
+                  <% } else { %>
+                    <img src="/images/clear.png" alt="">
+                  <% } %>
+                </div>
+                <p class="card-text"><%= item.description %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No data to show.</p>
+      <% } %>
+    </div>
+  </section>
+</main>
+
+<script src="/scripts/bootstrap.min.js"></script>
+<script src="/scripts/script.js"></script>
+</body>
+
+</html>

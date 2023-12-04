@@ -1,0 +1,14 @@
+main {
+  background: url(/images/bg.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+section.container {
+  max-width: 800px;
+  backdrop-filter: blur(10px);
+}
+
+.card-img-con > img {
+  width: 60px;
+}
